@@ -1,0 +1,10 @@
+.terraform/
+.terraform.lock.hcl
+
+*.tfvars
+!example.tfvars
+
+*.pem
+*.key
+*.crt
+

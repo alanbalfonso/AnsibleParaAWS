@@ -1,0 +1,17 @@
+---
+- name: Instalar y configurar Nginx
+  hosts: localhost
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Instalar paquete nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+
+    - name: Habilitar y arrancar servicio nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
