@@ -63,17 +63,17 @@ resource "aws_instance" "this" {
 	vpc_security_group_ids = [aws_security_group.this.id]
 	iam_instance_profile   = aws_iam_instance_profile.this.name
 	associate_public_ip_address = true
-	user_data              = <<-EOF
-		#!/bin/bash
-		set -euxo pipefail
+	user_data = <<-EOF
+    #!/bin/bash
+    set -euxo pipefail
 
-		export DEBIAN_FRONTEND=noninteractive
+    export DEBIAN_FRONTEND=noninteractive
 
-		apt-get update -qq
-		apt-get install -y software-properties-common
-		add-apt-repository --yes --update ppa:ansible/ansible
-		apt-get install -y ansible
-	EOF
+    apt-get update -qq
+    apt-get install -y software-properties-common
+    add-apt-repository --yes --update ppa:ansible/ansible
+    apt-get install -y ansible
+  EOF
 
 	tags = {
 		Name = var.instance_name
