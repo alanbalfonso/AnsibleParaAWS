@@ -1,16 +1,16 @@
 ---
-- name: Instalar y configurar Nginx
+- name: Instalación de Nginx en EC2 con Ansible
   hosts: localhost
   become: true
   gather_facts: true
 
   tasks:
-    - name: Instalar paquete nginx
+    - name: Paquetes de Nginx
       ansible.builtin.package:
         name: nginx
         state: present
 
-    - name: Habilitar y arrancar servicio nginx
+    - name: Arrancar y habilitar Nginx
       ansible.builtin.service:
         name: nginx
         state: started
