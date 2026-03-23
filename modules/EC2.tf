@@ -17,19 +17,3 @@ variable "ami_id" {
 variable "instance_type" {
 	type = string
 }
-
-output "instance_public_ip" {
-	description = "IP pública de la instancia EC2"
-	value       = module.ec2_ssm.instance_public_ip
-}
-
-output "instance_id" {
-	description = "ID de la instancia EC2"
-	value       = module.ec2_ssm.instance_id
-}
-
-output "instance_profile_name" {
-	description = "Nombre del Instance Profile usado por SSM"
-	value       = module.ec2_ssm.instance_profile_name
-}
-
